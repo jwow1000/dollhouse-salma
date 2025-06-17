@@ -1,0 +1,33 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+venv/
+env/
+*.egg-info/
+pip-wheel-metadata/
+
+# VSCode and editor files
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Audio files
+*.wav
+*.aif
+*.aiff
+
+# Logs or runtime files
+*.log
+
+# OS-specific files
+Thumbs.db
+
+# Jupyter (if any)
+.ipynb_checkpoints/
+
+# Local configuration
+.env
