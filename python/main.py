@@ -1,11 +1,20 @@
 from pythonosc.dispatcher import Dispatcher
 from pythonosc import osc_server
 from lifxlan import LifxLAN, Light
+from dotenv import load_dotenv
+import os
+
+# load env variables
+load_dotenv()
+
+# load env script
+print("MAC:", os.getenv("BULB1_MAC"))
+print("IP:", os.getenv("BULB1_IP"))
 
 # Map bulb names to Light objects
 lifx = LifxLAN()
 bulbs = {
-    "bulb1": Light("d0:73:d5:84:3b:1f", "192.168.0.165")
+    "bulb1": Light(os.getenv("BULB1_MAC"), os.getenv("BULB1_IP"))
 }
 
 # change color and brightness handler

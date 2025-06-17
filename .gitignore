@@ -9,6 +9,7 @@ env/
 *.egg-info/
 pip-wheel-metadata/
 
+
 # VSCode and editor files
 .vscode/
 *.swp
@@ -30,4 +31,5 @@ Thumbs.db
 .ipynb_checkpoints/
 
 # Local configuration
+config.json
 .env
