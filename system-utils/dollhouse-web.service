@@ -1,0 +1,13 @@
+[Unit]
+Description=Dollhouse Flask Web Server
+After=network.target
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi/dollhouse-lights
+ExecStart=/home/pi/dollhouse-lights/venv/bin/python app.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
