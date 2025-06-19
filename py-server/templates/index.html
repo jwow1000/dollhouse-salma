@@ -10,6 +10,9 @@
     <form action="/start" method="post">
         <button type="submit" style="background-color: darkseagreen;">Start</button>
     </form>
+    {% if status_msg %}
+      <p style="color: red;">{{ status_msg }}</p>
+    {% endif %}
     <form action="/shutdown" method="post">
         <button type="submit" style="background-color: pink;">Shutdown</button>
     </form>
