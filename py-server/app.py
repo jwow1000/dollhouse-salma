@@ -23,7 +23,7 @@ def start():
     return redirect(url_for('index'))
 
 @app.route('/stop', methods=['POST'])
-def start():
+def stop():
     subprocess.Popen(['./stop.sh'])
     return redirect(url_for('index'))
 
