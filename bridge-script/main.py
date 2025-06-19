@@ -37,8 +37,8 @@ def try_connect_bulb(mac, ip, name):
 # Map bulb names to Light objects
 lifx = LifxLAN()
 bulbs = {
-    "bulb1": try_connect_bulb(os.getenv("BULB1_MAC"), os.getenv("BULB1_IP")),
-    "bulb2": try_connect_bulb(os.getenv("BULB2_MAC"), os.getenv("BULB2_IP"))
+    "bulb1": try_connect_bulb(os.getenv("BULB1_MAC"), os.getenv("BULB1_IP"), "bulb1"),
+    "bulb2": try_connect_bulb(os.getenv("BULB2_MAC"), os.getenv("BULB2_IP"), "bulb2"),
 }
 # Remove bulbs that failed to connect
 bulbs = {k: v for k, v in bulbs.items() if v is not None}
