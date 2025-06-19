@@ -23,6 +23,7 @@ pip-wheel-metadata/
 
 # Logs or runtime files
 *.log
+log.txt
 
 # OS-specific files
 Thumbs.db
