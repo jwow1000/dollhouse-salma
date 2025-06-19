@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 import subprocess
 
-bulb_status_msg = "All bulbs connected."
+bulb_status_msg = ""
 
 app = Flask(__name__)
 
