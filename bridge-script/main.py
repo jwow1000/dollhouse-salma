@@ -44,7 +44,7 @@ bulbs = {
 bulbs = {k: v for k, v in bulbs.items() if v is not None}
 
 # Stop script and notify flask server 
-if len(bulbs) < 6:
+if len(bulbs) < 2:
     print("ERROR: Not all bulbs connected. Aborting startup.")
     # Notify Flask server here 
     notify_flask("ERROR: Not all bulbs connected.")
