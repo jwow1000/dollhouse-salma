@@ -22,6 +22,11 @@ def start():
     subprocess.Popen(['./start.sh'])
     return redirect(url_for('index'))
 
+@app.route('/stop', methods=['POST'])
+def start():
+    subprocess.Popen(['./stop.sh'])
+    return redirect(url_for('index'))
+
 @app.route('/shutdown', methods=['POST'])
 def shutdown():
     subprocess.Popen(['./shutdown.sh'])
