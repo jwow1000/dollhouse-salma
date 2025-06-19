@@ -14,7 +14,8 @@ print("IP:", os.getenv("BULB1_IP"))
 # Map bulb names to Light objects
 lifx = LifxLAN()
 bulbs = {
-    "bulb1": Light(os.getenv("BULB1_MAC"), os.getenv("BULB1_IP"))
+    "bulb1": Light(os.getenv("BULB1_MAC"), os.getenv("BULB1_IP")),
+    "bulb2": Light(os.getenv("BULB2_MAC"), os.getenv("BULB2_IP"))
 }
 
 # change color and brightness handler
@@ -28,6 +29,10 @@ def set_color_handler(addr, *args):
 dispatcher = Dispatcher()
 dispatcher.map("/bulb1/set_color", set_color_handler)
 dispatcher.map("/bulb2/set_color", set_color_handler)
+dispatcher.map("/bulb3/set_color", set_color_handler)
+dispatcher.map("/bulb4/set_color", set_color_handler)
+dispatcher.map("/bulb5/set_color", set_color_handler)
+dispatcher.map("/bulb6/set_color", set_color_handler)
 
 # osc server
 server = osc_server.ThreadingOSCUDPServer(("0.0.0.0", 9000), dispatcher)
