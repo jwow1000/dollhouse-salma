@@ -21,6 +21,20 @@ def notify_flask(status_msg):
 MAX_RETRIES = 5
 RETRY_DELAY = 2  # seconds
 
+# scan for ip addresses
+def resolve_ips_from_discovery(mac_addresses):
+    print("Discovering LIFX devices on the network...")
+    lifx = LifxLAN()
+    devices = lifx.discover_devices()
+    mac_to_ip = {}
+    for d in devices:
+        mac = d.mac_addr.lower()
+        if mac in mac_addresses:
+            mac_to_ip[mac] = d.ip_addr
+            print(f"Found {mac} at {d.ip_addr}")
+    return mac_to_ip
+
+
 def try_connect_bulb(mac, ip, name):
     for attempt in range(MAX_RETRIES):
         try:
@@ -36,10 +50,22 @@ def try_connect_bulb(mac, ip, name):
 
 # Map bulb names to Light objects
 lifx = LifxLAN()
-bulbs = {
-    "bulb1": try_connect_bulb(os.getenv("BULB1_MAC"), os.getenv("BULB1_IP"), "bulb1"),
-    "bulb2": try_connect_bulb(os.getenv("BULB2_MAC"), os.getenv("BULB2_IP"), "bulb2"),
+bulb_mac_map = {
+    "bulb1": os.getenv("BULB1_MAC").lower(),
+    "bulb2": os.getenv("BULB2_MAC").lower(),
 }
+# Resolve current IPs using discovery
+resolved_ips = resolve_ips_from_discovery(set(bulb_mac_map.values()))
+
+# Connect bulbs
+bulbs = {}
+for name, mac in bulb_mac_map.items():
+    ip = resolved_ips.get(mac)
+    if ip:
+        bulbs[name] = try_connect_bulb(mac, ip, name)
+    else:
+        print(f"[{name}] MAC {mac} not found in discovery scan.")
+
 # Remove bulbs that failed to connect
 bulbs = {k: v for k, v in bulbs.items() if v is not None}
 
