@@ -89,7 +89,7 @@ def set_color_handler(addr, *args):
     bulb = bulbs.get(bulb_name)
     if bulb:
         try:
-            bulbs[bulb_name].set_color(args[:4], duration=args[4] if len(args) > 4 else 1000)
+            bulbs[bulb_name].set_color(args[:4], duration=args[4] if len(args) > 4 else 1000, rapid=True)
         except WorkflowException as e:
             print(f"Failed to set color on {bulb_name}: {e}")
     else: 
