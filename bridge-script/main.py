@@ -26,6 +26,9 @@ def resolve_ips_from_discovery(mac_addresses):
     print("Discovering LIFX devices on the network...")
     lifx = LifxLAN()
     devices = lifx.discover_devices()
+    if not devices:
+        print("No devices discovered!")
+        return {}
     mac_to_ip = {}
     for d in devices:
         mac = d.mac_addr.lower()
