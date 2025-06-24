@@ -32,6 +32,11 @@ def shutdown():
     subprocess.Popen(['./shutdown.sh'])
     return redirect(url_for('index'))
 
+@app.route('/update', methods=['POST'])
+def update():
+    subprocess.Popen(['./update.sh'])
+    return redirect(url_for('index'))
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
 
