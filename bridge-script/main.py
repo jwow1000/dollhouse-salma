@@ -25,7 +25,7 @@ RETRY_DELAY = 2  # seconds
 def resolve_ips_from_discovery(mac_addresses):
     print("Discovering LIFX devices on the network...")
     lifx = LifxLAN()
-    devices = lifx.discover_devices()
+    devices = lifx.get_devices()
     if not devices:
         print("No devices discovered!")
         return {}
@@ -56,6 +56,10 @@ lifx = LifxLAN()
 bulb_mac_map = {
     "bulb1": os.getenv("BULB1_MAC").lower(),
     "bulb2": os.getenv("BULB2_MAC").lower(),
+    "bulb3": os.getenv("BULB3_MAC").lower(),
+    "bulb4": os.getenv("BULB4_MAC").lower(),
+    "bulb5": os.getenv("BULB5_MAC").lower(),
+    "bulb6": os.getenv("BULB6_MAC").lower(),
 }
 # Resolve current IPs using discovery
 resolved_ips = resolve_ips_from_discovery(set(bulb_mac_map.values()))
