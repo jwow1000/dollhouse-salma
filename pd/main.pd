@@ -715,7 +715,7 @@
 #X obj 653 387 moses 2;
 #X obj 427 36 r rest-mode-status;
 #X floatatom 427 60 5 0 0 0 - - - 0;
-#N canvas 116 164 1324 708 rest 0;
+#N canvas 116 164 1324 708 rest 1;
 #N canvas 385 117 1055 755 brightness-sweep 0;
 #X obj 235 777 s message-out;
 #X obj 292 708 s message-out;
@@ -984,12 +984,13 @@
 #X obj 329 497 set-cos-hue-bright 600 8000 0 300 55535 10000 bulb4;
 #X obj 376 457 set-cos-hue-bright 700 8000 0 400 55535 10000 bulb15;
 #X obj 482 425 set-cos-hue-bright 800 8000 0 500 55535 10000 bulb6;
+#X msg 315 32 30000;
 #X connect 0 0 15 0;
+#X connect 0 0 20 0;
 #X connect 0 0 16 0;
 #X connect 0 0 17 0;
 #X connect 0 0 18 0;
 #X connect 0 0 19 0;
-#X connect 0 0 20 0;
 #X connect 1 0 0 0;
 #X connect 2 0 1 0;
 #X connect 3 0 2 0;
@@ -1007,6 +1008,7 @@
 #X connect 12 0 13 0;
 #X connect 13 0 14 0;
 #X connect 14 0 3 0;
+#X connect 21 0 6 0;
 #X restore 375 99 pd slow-osc-change;
 #X obj 74 72 r rest-mode-status;
 #X text 504 158 use slow-osc as base but add sweeps at random points;
@@ -1021,7 +1023,7 @@
 #X text 43 492 slow osc for rest;
 #X obj 237 423 random 5;
 #X obj 74 96 sel 1;
-#N canvas 63 88 784 631 movement-1 0;
+#N canvas 63 88 784 631 movement-1 1;
 #X obj 83 394 s control-hue-sweep;
 #X msg 82 202 10000;
 #X obj 254 189 del 10000;
