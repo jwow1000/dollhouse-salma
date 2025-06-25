@@ -1,4 +1,4 @@
-#N canvas 188 74 1252 748 12;
+#N canvas 134 74 1252 748 12;
 #N canvas 494 148 653 599 connect2python 0;
 #X msg 248 117 connect localhost 9000;
 #X obj 259 508 netsend -u -b;
@@ -715,7 +715,7 @@
 #X obj 653 387 moses 2;
 #X obj 427 36 r rest-mode-status;
 #X floatatom 427 60 5 0 0 0 - - - 0;
-#N canvas 116 164 1324 708 rest 1;
+#N canvas 482 164 1324 708 rest 0;
 #N canvas 385 117 1055 755 brightness-sweep 0;
 #X obj 235 777 s message-out;
 #X obj 292 708 s message-out;
@@ -857,7 +857,7 @@
 #X connect 65 0 66 0;
 #X connect 66 0 46 0;
 #X restore 373 12 pd brightness-sweep;
-#N canvas 121 146 958 604 hue-sweep 0;
+#N canvas -37 120 958 604 hue-sweep 0;
 #X obj 372 774 s message-out;
 #X obj 429 705 s message-out;
 #X obj 479 643 s message-out;
@@ -962,7 +962,7 @@
 #X connect 47 0 48 0;
 #X connect 48 0 28 0;
 #X restore 369 53 pd hue-sweep;
-#N canvas 215 174 1135 651 slow-osc-change 0;
+#N canvas 688 91 1135 651 slow-osc-change 0;
 #X obj 202 352 t a;
 #X obj 202 323 i;
 #X obj 200 291 * 600;
@@ -979,18 +979,18 @@
 #X obj 451 37 sel 0;
 #X msg 450 69 stop;
 #X obj 49 591 set-cos-hue-bright 300 8000 0 0 55535 10000 bulb1;
-#X obj 155 559 set-cos-hue-bright 400 8000 0 100 55535 10000 bulb2;
-#X obj 223 529 set-cos-hue-bright 500 8000 0 200 55535 10000 bulb3;
-#X obj 329 497 set-cos-hue-bright 600 8000 0 300 55535 10000 bulb4;
-#X obj 376 457 set-cos-hue-bright 700 8000 0 400 55535 10000 bulb15;
-#X obj 482 425 set-cos-hue-bright 800 8000 0 500 55535 10000 bulb6;
 #X msg 315 32 30000;
+#X obj 155 559 set-cos-hue-bright 400 8000 10000 100 55535 10000 bulb2;
+#X obj 223 529 set-cos-hue-bright 500 8000 20000 200 55535 10000 bulb3;
+#X obj 329 497 set-cos-hue-bright 600 8000 30000 300 55535 10000 bulb4;
+#X obj 376 457 set-cos-hue-bright 700 8000 40000 400 55535 10000 bulb5;
+#X obj 482 425 set-cos-hue-bright 800 8000 50000 500 55535 10000 bulb6;
 #X connect 0 0 15 0;
-#X connect 0 0 20 0;
-#X connect 0 0 16 0;
 #X connect 0 0 17 0;
 #X connect 0 0 18 0;
 #X connect 0 0 19 0;
+#X connect 0 0 20 0;
+#X connect 0 0 21 0;
 #X connect 1 0 0 0;
 #X connect 2 0 1 0;
 #X connect 3 0 2 0;
@@ -1008,7 +1008,7 @@
 #X connect 12 0 13 0;
 #X connect 13 0 14 0;
 #X connect 14 0 3 0;
-#X connect 21 0 6 0;
+#X connect 16 0 6 0;
 #X restore 375 99 pd slow-osc-change;
 #X obj 74 72 r rest-mode-status;
 #X text 504 158 use slow-osc as base but add sweeps at random points;
